@@ -2,11 +2,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== RPG — Expansión: Nuevas Clases ===\n");
 
-        // -- Error esperado (línea comentada) --
-        // Personaje p = new Personaje("Desconocido", 1, 100); 
-        // Error: Cannot instantiate the type Personaje porque es abstracta.
-
-        // Creación de objetos
+        // Creacion de objetos
         Druida druida = new Druida("Sylva", 7, 200, 180, 120, "Oso");
         Nigromante nigromante = new Nigromante("Malachar", 6, 280, 220, 15);
         Bardo bardo = new Bardo("Finnian", 5, 150, 60, "laúd");

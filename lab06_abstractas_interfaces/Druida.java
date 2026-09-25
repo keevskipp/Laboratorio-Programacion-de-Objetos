@@ -1,7 +1,7 @@
 public class Druida extends Personaje implements Hechicero, Sanador {
     private int mana;
     private int poderCuracion;
-    private String formaNatural; // Atributo propio
+    private String formaNatural;
 
     public Druida(String nombre, int nivel, int puntosVida, int mana, int poderCuracion, String formaNatural) {
         super(nombre, nivel, puntosVida);

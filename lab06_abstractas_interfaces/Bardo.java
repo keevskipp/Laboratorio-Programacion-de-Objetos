@@ -1,6 +1,6 @@
 public class Bardo extends Personaje implements Sanador {
     private int poderCuracion;
-    private String instrumento; // Atributo propio
+    private String instrumento; 
 
     public Bardo(String nombre, int nivel, int puntosVida, int poderCuracion, String instrumento) {
         super(nombre, nivel, puntosVida);

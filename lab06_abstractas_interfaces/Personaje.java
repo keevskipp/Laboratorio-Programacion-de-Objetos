@@ -30,7 +30,7 @@ public abstract class Personaje {
         }
     }
 
-    // Métodos abstractos — cada subclase DEBE implementarlos
+    // los metodos abstractos cada subclase debe implementarlos
     public abstract void atacar();
     public abstract int calcularDanio();
 

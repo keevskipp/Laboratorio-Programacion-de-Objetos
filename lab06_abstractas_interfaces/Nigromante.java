@@ -1,6 +1,6 @@
 public class Nigromante extends Personaje implements Hechicero {
     private int mana;
-    private int almasAbsorbidas; // Atributo propio
+    private int almasAbsorbidas; 
 
     public Nigromante(String nombre, int nivel, int puntosVida, int mana, int almasAbsorbidas) {
         super(nombre, nivel, puntosVida);
