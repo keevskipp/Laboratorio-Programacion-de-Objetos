@@ -1,0 +1,3 @@
+Sylva,10,300
+Legolas,6,150
+Thorin,9,400
