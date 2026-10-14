@@ -1,3 +1,5 @@
+package lab03_encapsulamiento;
+
 public class Automovil extends Vehiculo {
     // 1. Atributos propios
     private int numPuertas;
