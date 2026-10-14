@@ -1,4 +1,6 @@
-ppublic class Vehiculo {
+package lab03_encapsulamiento;
+
+public class Vehiculo {
     // 1. Atributos con modificadores de acceso
     private String marca;
     private String modelo;
