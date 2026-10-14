@@ -18,7 +18,7 @@ public class Automovil extends Vehiculo {
         return numPuertas;
     }
 
-    public boolean isElectrico() { // Nota: Los booleanos usan 'is' en lugar de 'get'
+    public boolean isElectrico() { // Los booleanos usan 'is' en lugar de 'get'
         return esElectrico;
     }
 

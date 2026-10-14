@@ -12,8 +12,7 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
         
-        // Usamos los setters en el constructor para aprovechar sus validaciones
-        // Si fallan en la creación, se quedarán con los valores por defecto (0)
+
         setAnio(anio);
         setVelocidadMax(velocidadMax);
     }

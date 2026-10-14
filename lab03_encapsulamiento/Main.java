@@ -20,9 +20,9 @@ public class Main {
         System.out.println("\n--- PRUEBA DE VALIDACIONES ---");
         
         // 3. Probar validaciones con errores a propósito
-        auto.setAnio(1800);        // Error: Año muy antiguo
-        auto.setNumPuertas(10);    // Error: Puertas inválidas
-        avion.setAltitudMaxima(-500); // Error: Altitud negativa
+        auto.setAnio(1800);        // Error Año muy antiguo
+        auto.setNumPuertas(10);    // Error Puertas inválidas
+        avion.setAltitudMaxima(-500); // Error Altitud negativa
         
         System.out.println("\n--- DESPUÉS DE CORREGIR DATOS ---");
         
