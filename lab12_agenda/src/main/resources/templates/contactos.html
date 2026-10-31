@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda de Contactos</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        h1 { color: #4a90e2; text-align: center; }
+        .boton {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #4a90e2;
+            padding: 10px;
+            text-align: left;
+        }
+        th { background-color: #16213e; color: #4a90e2; }
+        .acciones { white-space: nowrap; }
+        .acciones form { display: inline; }
+        .editar {
+            color: #4a90e2;
+            margin-right: 10px;
+        }
+        .borrar {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .vacio { text-align: center; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Agenda de Contactos</h1>
+
+    <a class="boton" th:href="@{/nuevo}">+ Nuevo contacto</a>
+
+    <!-- Si hay contactos, mostramos la tabla -->
+    <table th:if="${!contactos.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- th:each repite esta fila por cada contacto de la lista -->
+            <tr th:each="c : ${contactos}">
+                <td th:text="${c.nombre}">Nombre</td>
+                <td th:text="${c.apellido}">Apellido</td>
+                <td th:text="${c.email}">correo@ejemplo.com</td>
+                <td th:text="${c.telefono}">0000000000</td>
+                <td class="acciones">
+                    <a class="editar" th:href="@{/editar/{id}(id=${c.id})}">Editar</a>
+                    <form th:action="@{/eliminar/{id}(id=${c.id})}" method="post"
+                          onsubmit="return confirm('Seguro que quieres borrar este contacto?');">
+                        <button class="borrar" type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Si la lista esta vacia, mostramos un mensaje -->
+    <p class="vacio" th:unless="${!contactos.isEmpty()}">
+        Todavia no hay contactos. Agrega el primero con el boton de arriba.
+    </p>
+</body>
+</html>

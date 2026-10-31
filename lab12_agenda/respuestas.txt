@@ -1,0 +1,27 @@
+LABORATORIO 12 - AGENDA DE CONTACTOS CON SPRING BOOT Y BASE DE DATOS
+
+OBJETIVO
+Aprender a guardar datos en una base de datos desde una pagina web hecha con Spring Boot. Se hizo una agenda de contactos donde se pueden agregar, ver, editar y borrar contactos, usando una base de datos H2, JPA y Thymeleaf.
+
+INTRODUCCION
+En el laboratorio pasado la pagina solo mostraba datos que ya estaban escritos en el codigo. En este laboratorio la aplicacion ya puede guardar informacion de verdad: se llena un formulario en el navegador y el contacto queda guardado en una base de datos. Despues se puede ver la lista de todos los contactos, y como parte extra se agrego la opcion de editar y de eliminar.
+
+EXPLICACION DEL TEMA
+Una base de datos es donde se guardan los datos para no perderlos. Aqui se uso H2, que es una base de datos que corre dentro de la misma aplicacion, asi que no hay que instalar nada. Para hablar con la base de datos se usa JPA, que convierte una clase de Java en una tabla. La clase Contacto lleva la anotacion @Entity, y por eso Spring crea la tabla CONTACTO con una columna por cada atributo. El id lleva @Id y @GeneratedValue para que la base de datos le ponga el numero sola. Para guardar y consultar no se escribe SQL, porque la interfaz ContactoRepository extiende JpaRepository y con eso ya trae metodos listos como save, findAll, findById y deleteById. El controlador tiene una ruta GET para mostrar el formulario y la lista, y una ruta POST para recibir el formulario y guardar. En el HTML, th:object y th:field conectan los campos del formulario con el objeto Contacto, y th:each repite una fila de la tabla por cada contacto. Para editar se usa la misma funcion save, porque si el contacto ya trae su id, se actualiza en lugar de crear uno nuevo. Para borrar se usa deleteById con el id del contacto.
+
+CONCLUSION
+Con esta practica aprendi como una pagina web puede guardar datos en una base de datos sin escribir SQL, porque JPA y el repositorio hacen casi todo. Entendi que cada parte tiene su trabajo: la entidad es la tabla, el repositorio guarda y consulta, el controlador recibe las peticiones y el HTML muestra todo. Tambien vi que con muy poco codigo se puede tener una agenda que agrega, lista, edita y borra contactos.
+
+PREGUNTAS DE REFLEXION
+
+Pregunta 1: ¿Que hace @Entity? ¿Por que se requiere el constructor vacio?
+Respuesta: @Entity le dice a JPA que esa clase representa una tabla de la base de datos, y cada objeto de la clase es una fila de esa tabla. El constructor vacio se necesita porque cuando JPA lee la tabla, primero crea el objeto vacio y despues le va poniendo los datos con los setters. Si no existe el constructor vacio, JPA no puede crear los objetos y marca error.
+
+Pregunta 2: ¿Por que ContactoRepository no tiene ningun metodo escrito pero aun asi se puede llamar findAll() y save()?
+Respuesta: Porque la interfaz extiende JpaRepository, y JpaRepository ya trae esos metodos definidos. Cuando la aplicacion arranca, Spring crea solo la clase que los implementa, asi que nosotros no escribimos nada de codigo ni de SQL.
+
+Pregunta 3: ¿Que diferencia hay entre @GetMapping y @PostMapping? ¿Cuando usarias cada uno?
+Respuesta: @GetMapping responde cuando el navegador pide una pagina, por ejemplo al escribir una direccion o dar clic en un enlace, y se usa para mostrar cosas como la lista o el formulario. @PostMapping responde cuando se envia un formulario con datos, y se usa cuando algo se va a cambiar, como guardar, actualizar o borrar. Los datos del POST no se ven en la direccion del navegador.
+
+Pregunta 4: Agregar modulos de delete y update.
+Respuesta: Se agregaron al controlador tres rutas nuevas. La ruta GET /editar/{id} busca el contacto con findById y muestra el formulario editar.html con sus datos ya escritos. La ruta POST /actualizar recibe el formulario y llama a save, que como el contacto trae su id escondido en el formulario, lo actualiza en lugar de crear uno nuevo. La ruta POST /eliminar/{id} llama a deleteById y borra el contacto. En la tabla de contactos.html cada fila tiene un enlace Editar y un boton Eliminar que antes de borrar pregunta si de verdad se quiere borrar.

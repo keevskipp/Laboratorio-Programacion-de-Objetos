@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar contacto</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .caja {
+            border: 3px solid #4a90e2;
+            border-radius: 15px;
+            padding: 30px 40px;
+            width: 320px;
+        }
+        h1 { color: #4a90e2; text-align: center; }
+        label { display: block; margin-top: 12px; }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #4a90e2;
+            background-color: #16213e;
+            color: #eaeaea;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        a { color: #4a90e2; display: block; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h1>Editar contacto</h1>
+
+        <form th:action="@{/actualizar}" th:object="${contacto}" method="post">
+            <!-- El id va escondido: asi save() sabe que es un contacto que ya existe y lo actualiza -->
+            <input type="hidden" th:field="*{id}">
+
+            <label>Nombre</label>
+            <input type="text" th:field="*{nombre}" required>
+
+            <label>Apellido</label>
+            <input type="text" th:field="*{apellido}" required>
+
+            <label>Email</label>
+            <input type="email" th:field="*{email}" required>
+
+            <label>Telefono (opcional)</label>
+            <input type="text" th:field="*{telefono}">
+
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <a th:href="@{/contactos}">Cancelar y volver a la lista</a>
+    </div>
+</body>
+</html>
