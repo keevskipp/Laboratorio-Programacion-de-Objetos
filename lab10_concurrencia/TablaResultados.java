@@ -1,5 +1,3 @@
-package lab10_concurrencia;
-
 import java.util.ArrayList;
 
 public class TablaResultados {

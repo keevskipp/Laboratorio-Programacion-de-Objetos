@@ -1,4 +1,3 @@
-package lab10_concurrencia;
 
 public class CombateConcurrente implements Runnable {
 
@@ -31,12 +30,10 @@ public class CombateConcurrente implements Runnable {
                 Thread.sleep(500);
 
                 atacante.atacar();
-                // Nota: Asegúrate de que los métodos calcularDanio() y recibirDanio() 
-                // existan en tus clases de laboratorios anteriores. Si usaste otros nombres, ajústalos.
-                int danio = 150; // Valor simulado, reemplaza con: atacante.calcularDanio(); si lo tienes implementado
+                int danio = 150; 
                 defensor.recibirDanio(danio);
 
-            } catch (Exception e) { // Cambiado a Exception genérica si RpgException no está definida aquí
+            } catch (Exception e) { 
                 System.out.println("[" + nombre + "] ⚠ Error en combate: " + e.getMessage());
                 break;
 

@@ -1,5 +1,3 @@
-package lab10_concurrencia;
-
 public class MonitorTorneo extends Thread {
 
     private String nombreCampo;

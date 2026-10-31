@@ -1,5 +1,3 @@
-package lab10_concurrencia;
-
 public class ContadorCompartido {
 
     private int contador = 0;
