@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aventurero - Spring Boot</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .caja {
+            border: 3px solid #4a90e2;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 { color: #4a90e2; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h1>Aventurero: <span th:text="${aventurero.nombre}">Nombre</span></h1>
+        <p>Clase: <span th:text="${aventurero.clase}">Clase</span></p>
+        <p>Nivel: <span th:text="${aventurero.nivel}">0</span></p>
+    </div>
+</body>
+</html>

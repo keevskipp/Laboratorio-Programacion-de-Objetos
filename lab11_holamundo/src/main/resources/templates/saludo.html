@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo - Spring Boot</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .caja {
+            border: 3px solid #4a90e2;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 { color: #4a90e2; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <!-- th:text cambia el texto por el dato que manda el controlador -->
+        <h1 th:text="${mensaje}">Mensaje de ejemplo</h1>
+        <h2 th:text="${gremio}">Gremio de ejemplo</h2>
+        <p>Nivel del gremio: <span th:text="${nivel}">0</span></p>
+    </div>
+</body>
+</html>
